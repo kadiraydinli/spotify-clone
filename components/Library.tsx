@@ -1,12 +1,25 @@
 "use client";
 
 import Icon from "@/assets/icons";
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
 
 interface LibraryProps {}
 
 const Library: React.FC<LibraryProps> = () => {
+	const authModal = useAuthModal();
+	const uplaodModal = useUploadModal();
+	const { user } = useUser();
+
 	const onClick = () => {
-		// Handle upload later
+		if (!user) {
+			return authModal.onOpen();
+		}
+
+		// TODO: Check for subscription
+
+		return uplaodModal.onOpen();
 	};
 
 	return (
