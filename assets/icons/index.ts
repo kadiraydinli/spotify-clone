@@ -1,11 +1,10 @@
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { TbPlaylist } from "react-icons/tb";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlinePlus, AiFillHeart } from "react-icons/ai";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaUserAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import { FaUserAlt } from "react-icons/fa";
 
 const Icon = {
     Home: HiHome,
@@ -17,6 +16,8 @@ const Icon = {
     Play: FaPlay,
     Close: IoMdClose,
     User: FaUserAlt,
+    FillHeart: AiFillHeart,
+    OutlineHeart: AiOutlineHeart,
 };
 
 export default Icon;
