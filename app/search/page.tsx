@@ -10,6 +10,8 @@ interface SearchProps {
 	};
 }
 
+export const revalidate = 0;
+
 const Search: React.FC<SearchProps> = async ({ searchParams }) => {
 	const songs = await getSongsByTitle(searchParams.title);
 
