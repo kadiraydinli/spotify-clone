@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { useSessionContext } from "@supabase/auth-helpers-react";
@@ -43,15 +43,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 		fetchData();
 	}, [user?.id, songId, supabaseClient]);
 
-	const IconHeart = useMemo(() => {
-		const color = isLiked ? "#22c55e" : "white";
-		const size = 25;
-		return isLiked ? (
-			<Icon.FillHeart color={color} size={size} />
-		) : (
-			<Icon.OutlineHeart color={color} size={size} />
-		);
-	}, [isLiked]);
+	const IconHeart = isLiked ? Icon.FillHeart : Icon.OutlineHeart;
 
 	const handleLike = async () => {
 		if (!user) {
@@ -89,7 +81,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ songId }) => {
 
 	return (
 		<button className="hover:opacity-75 transition" onClick={handleLike}>
-			{IconHeart}
+			<IconHeart size={25} color={isLiked ? "#22c55e" : "white"} />
 		</button>
 	);
 };
