@@ -97,6 +97,8 @@ const createOrRetrieveCustomer = async ({
 
         return customer.id;
     }
+
+    return data.stripe_customer_id;
 };
 
 const copyBillingDetailsToCustomer = async (
